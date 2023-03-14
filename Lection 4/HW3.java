@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.io.*;
 
-public class third {
+public class HW3 {
     public static void main(String[] args) {
 
         try (Scanner number = new Scanner(System.in)) {
@@ -11,41 +11,43 @@ public class third {
             String number_1 = number.next();
 
             int intnum1 = Integer.parseInt(number_1);
+            int oldresult = 0;
             for (;;) {
-                System.out.print("Input `* / - +` : ");
+
+                System.out.print("Input `* / - +` or r for reverse operation : ");
                 String symbol = number.next();
                 char symbol1 = symbol.charAt(0);
                 int intnum2 = 0;
-                if (symbol1 == 44) {
+                int result = 0;
+
+                if (symbol1 == 114) {
                     System.out.println("отмена операции");
-                    intnum2 = 0;
+
+                    result = oldresult;
                 } else {
                     System.out.print("Input number 2 : ");
                     String number_2 = number.next();
                     intnum2 = Integer.parseInt(number_2);
                 }
-                int result = 0;
+
                 if (symbol1 == 43) {
                     result = intnum1 + intnum2;
-                    System.out.println(result);
-                    intnum1 = result;
+
                 } else if (symbol1 == 45) {
                     result = intnum1 - intnum2;
-                    System.out.println(result);
-                    intnum1 = result;
+
                 } else if (symbol1 == 42) {
                     result = intnum1 * intnum2;
-                    System.out.println(result);
+
                     intnum1 = result;
                 } else if (symbol1 == 47) {
                     result = intnum1 / intnum2;
-                    System.out.println(result);
-                    intnum1 = result;
 
-                } else {
-                    System.out.print("Введены неверные данные, только +-/*, вы ввели: ");
-                    System.out.println(symbol1);
                 }
+                System.out.println(result);
+                oldresult = intnum1;
+                intnum1 = result;
+
                 try (FileWriter writer = new FileWriter("log3.txt", true)) {
 
                     StringBuilder mas = new StringBuilder(
