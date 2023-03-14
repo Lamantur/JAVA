@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.io.*;
 
@@ -11,7 +11,8 @@ public class HW3 {
             String number_1 = number.next();
 
             int intnum1 = Integer.parseInt(number_1);
-            int oldresult = 0;
+
+            LinkedList<Integer> allresults = new LinkedList<Integer>();
             for (;;) {
 
                 System.out.print("Input `* / - +` or r for reverse operation : ");
@@ -21,9 +22,16 @@ public class HW3 {
                 int result = 0;
 
                 if (symbol1 == 114) {
-                    System.out.println("отмена операции");
 
-                    result = oldresult;
+                    System.out.println("отмена операции");
+                    try {
+                        allresults.removeLast();
+                        result = allresults.getLast();
+                        allresults.removeLast();
+                    } catch (Throwable e) {
+                        System.out.println("отмена операции невозможна");
+                    }
+
                 } else {
                     System.out.print("Input number 2 : ");
                     String number_2 = number.next();
@@ -45,7 +53,8 @@ public class HW3 {
 
                 }
                 System.out.println(result);
-                oldresult = intnum1;
+                allresults.addLast(result);
+
                 intnum1 = result;
 
                 try (FileWriter writer = new FileWriter("log3.txt", true)) {
