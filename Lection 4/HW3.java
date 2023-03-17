@@ -33,12 +33,13 @@ public class HW3 {
                 } else if (symbol1 == 47) {
                     result = intnum1 / intnum2;
                 }
-                System.out.println(result);
-                allresults.addLast(result);
-                intnum1 = result;
                 StringBuilder logToFile = new StringBuilder(
                         intnum1 + " " + symbol1 + " " + intnum2 + " " + " = " + result);
                 logging(logToFile);
+                System.out.println(result);
+                allresults.addLast(result);
+                intnum1 = result;
+
             }
         } catch (NumberFormatException e) {
             System.out.println("Введены неверные данные");
