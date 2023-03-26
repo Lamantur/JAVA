@@ -25,7 +25,7 @@ public class Main {
         set.add(new Notebook("Vostro", 4, "AMD", 26770, "DELL", "-"));
         set.add(new Notebook("Workbook", 8, "Intel", 40990, "HIPER", "-"));
 
-        OperationWithNotebook operation = new OperationWithNotebook(set);
+        Operation operation = new Operation(set);
         operation.start();
 
     }

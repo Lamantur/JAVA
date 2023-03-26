@@ -1,7 +1,7 @@
 
 import java.util.*;
 
-public class OperationWithNotebook {
+public class Operation {
 
     private Set<Notebook> notebooks = new HashSet<>();
     private List<Criterion> criterionList = new ArrayList<>();
@@ -54,13 +54,13 @@ public class OperationWithNotebook {
         return true;
     }
 
-    public OperationWithNotebook(Set<Notebook> notebooks) {
-        OperationWithNotebook.scanner = new Scanner(System.in);
+    public Operation(Set<Notebook> notebooks) {
+        Operation.scanner = new Scanner(System.in);
         this.notebooks = notebooks;
     }
 
-    public OperationWithNotebook(Set<Notebook> notebooks, List<Criterion> criterionList) {
-        OperationWithNotebook.scanner = new Scanner(System.in);
+    public Operation(Set<Notebook> notebooks, List<Criterion> criterionList) {
+        Operation.scanner = new Scanner(System.in);
         this.notebooks = notebooks;
         this.criterionList = criterionList;
     }
